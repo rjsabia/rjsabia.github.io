@@ -83,8 +83,7 @@ from bs4 import BeautifulSoup as Soup
 
 with open(PATH_TO_BLOG/"index.html") as index:
     soup = Soup(index.read())
-    test = str(soup)
-    print("string from index doc: ",test)
+    
 
 
 
