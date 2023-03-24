@@ -32,14 +32,12 @@ def update_blog(commit_message='Updates blog'):
     origin.set_url(GITHUB_URL)  # set the GitHub URL with access token
     origin.push()
 
-random_text_string = "BWAH 33333666666"
+random_text_string = "BWAH 33333888888"
 
 with open(PATH_TO_BLOG/"index.html",'w') as f:
     f.write(random_text_string)
 
 update_blog()
-
-print(os.getenv('TEST_ENV'))
 
 
 
