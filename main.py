@@ -69,7 +69,7 @@ def create_new_blog(title,content,cover_image):
             f.write("</body>\n")
             f.write("</html>\n")
             print("Blog Page Created!")
-            print("Here is what the path name should be: ", files)
+            print("Here is what the path name should be: ", new_title)
             return path_to_new_content
 
     else:
