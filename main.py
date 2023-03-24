@@ -76,6 +76,8 @@ def create_new_blog(title,content,cover_image):
 
 path_to_new_content = create_new_blog('Testing title beoitch : ]','Badummm, BUMMM','uglyAF.png')
 
+print(path_to_new_content)
+
 
 
 
