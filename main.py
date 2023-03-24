@@ -39,6 +39,7 @@ with open(PATH_TO_BLOG/"index.html",'w') as f:
 
 update_blog()
 
+print(os.getenv('TEST_ENV'))
 
 
 
