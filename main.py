@@ -29,7 +29,7 @@ def update_blog(commit_message='Updates blog'):
     repo.index.commit(commit_message)
     # git push
     origin = repo.remote(name='origin')
-    origin.url = GITHUB_URL  # set the GitHub URL with access token
+    origin.set_url(GITHUB_URL)  # set the GitHub URL with access token
     origin.push()
 
 random_text_string = "BWAH 33333666666"
