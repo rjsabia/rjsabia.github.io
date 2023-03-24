@@ -69,15 +69,23 @@ def create_new_blog(title,content,cover_image):
             f.write("</body>\n")
             f.write("</html>\n")
             print("Blog Page Created!")
-            print("Here is what the path name should be: ", new_title)
+            # print("Here is what the path name should be: ", new_title)
             return path_to_new_content
 
     else:
         raise FileExistsError("File already exist, please check file name. Aborting operation!")
 
 path_to_new_content = create_new_blog('Testing title beoitch : ]','Badummm, BUMMM','uglyAF.png')
+# print(path_to_new_content)
 
-print(path_to_new_content)
+# --> Index.html ---> Blog Post
+from bs4 import BeautifulSoup as Soup
+
+with open(PATH_TO_BLOG/"index.html") as index:
+    soup = Soup(index.read())
+    print("string from index doc: ",str(soup))
+
+
 
 
 
