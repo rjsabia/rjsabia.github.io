@@ -3,7 +3,7 @@ import openai
 
 openai.api_key = os.getenv('OPEN_AI_KEY_01')
 
-GITHUB_KEY = os.getenv('GITHUB_KEY_01')
+GITHUB_KEY = os.getenv('GITHUB_KEY_02')
 
 # trick for installing
 # !pip3 install GitPython
@@ -11,7 +11,7 @@ GITHUB_KEY = os.getenv('GITHUB_KEY_01')
 from git import Repo
 from pathlib import Path
 
-GITHUB_URL = "https://rjsabia:{GITHUB_KEY}@github.com/rjsabia/rjsabia.github.io.git"
+GITHUB_URL = GITHUB_KEY
 
 PATH_TO_BLOG_REPO = Path("/Users/bloodrubber/Desktop/AI_Python_Course/GitHub/rjsabia.github.io/.git")
 # print(PATH_TO_BLOG_REPO.parent)
