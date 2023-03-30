@@ -83,7 +83,7 @@ from bs4 import BeautifulSoup as Soup
 
 with open(PATH_TO_BLOG/"index.html") as index:
     soup = Soup(index.read())
-    print("This is soup: ", str(soup)) # testing for html to see what it is
+    # print("This is soup: ", str(soup)) # testing for html to see what it is
 
 # checking for duplicate links
 # write the blog post link ---> index.html
@@ -92,19 +92,12 @@ def check_for_duplicate_links(path_to_new_content, links):
     content_path = str(Path(*path_to_new_content.parts[-2:]))
     return content_path in urls
 
-def write_to_index(path_to_new_content): # check here !!!!!
+def write_to_index(path_to_new_content):
     with open(PATH_TO_BLOG/'index.html') as index:
         soup = Soup(index.read())
 
-# def write_to_index(PATH_TO_BLOG, path_to_new_content): # check here !!!!!
-    # with open(PATH_TO_BLOG/'index.html') as index:
-        # soup = Soup(index.read())
-
     links = soup.find_all('a')
-    # print("this is the links: ",links) # test
     last_link = links[-1]
-    # print("this is the last_link: ", last_link) # test
-   
 
     if check_for_duplicate_links(path_to_new_content,links):
         raise ValueError("Link already exist fool!")
@@ -119,10 +112,7 @@ def write_to_index(path_to_new_content): # check here !!!!!
 
 
 write_to_index(path_to_new_content)
-# write_to_index(PATH_TO_BLOG, path_to_new_content)
 update_blog()
-
-# getting console error
 
 
 
