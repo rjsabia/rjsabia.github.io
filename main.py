@@ -36,12 +36,12 @@ def update_blog(commit_message='Updates blog'):
     origin.set_url(GITHUB_URL)  # set the GitHub URL with access token
     origin.push()
 
-random_text_string = "You are a cry sack yo"
+# random_text_string = "You are a cry sack yo"
 
-with open(PATH_TO_BLOG/"index.html",'w') as f:
-    f.write(random_text_string)
+# with open(PATH_TO_BLOG/"index.html",'w') as f:
+    # f.write(random_text_string)
 
-update_blog()
+# update_blog()
 
 def create_new_blog(title,content,cover_image):
     cover_image = Path(cover_image)
@@ -75,7 +75,7 @@ def create_new_blog(title,content,cover_image):
     else:
         raise FileExistsError("File already exist, please check file name. Aborting operation!")
 
-path_to_new_content = create_new_blog('Testing title fool : ]','Yooooo WHooooo','uglyAF.png')
+path_to_new_content = create_new_blog('Testing title fool : ]','Sup March 30 , 4:30','uglyAF.png')
 # print(path_to_new_content)
 
 # --> Index.html ---> Blog Post
@@ -83,6 +83,7 @@ from bs4 import BeautifulSoup as Soup
 
 with open(PATH_TO_BLOG/"index.html") as index:
     soup = Soup(index.read())
+    print("This is soup: ", str(soup))
 
 # checking for duplicate links
 # write the blog post link ---> index.html
@@ -96,9 +97,9 @@ def write_to_index(PATH_TO_BLOG, path_to_new_content): # check here !!!!!
         soup = Soup(index.read())
 
     links = soup.find_all('a')
-    print("this is the links: ",links)
+    # print("this is the links: ",links) # test
     last_link = links[-1]
-    print("this is the last_link: ", last_link)
+    # print("this is the last_link: ", last_link) # test
    
 
     if check_for_duplicate_links(path_to_new_content,links):
@@ -114,7 +115,7 @@ def write_to_index(PATH_TO_BLOG, path_to_new_content): # check here !!!!!
 
 
 write_to_index(PATH_TO_BLOG, path_to_new_content)
-# update_blog()
+update_blog()
 
 # getting console error
 
