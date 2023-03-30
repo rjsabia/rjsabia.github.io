@@ -5,8 +5,8 @@ import shutil
 
 # environmental variables
 openai.api_key = os.getenv('OPEN_AI_KEY_01')
-# GITHUB_KEY = os.getenv('GITHUB_KEY_02')
-GITHUB_KEY = os.getenv('GITHUB_KEY_03')
+GITHUB_KEY = os.getenv('GITHUB_KEY_02')
+# GITHUB_KEY = os.getenv('GITHUB_KEY_03')
 
 # trick for installing
 # !pip3 install GitPython
