@@ -75,15 +75,68 @@ def create_new_blog(title,content,cover_image):
     else:
         raise FileExistsError("File already exist, please check file name. Aborting operation!")
 
-path_to_new_content = create_new_blog('Testing title beoitch : ]','Badummm, BUMMM','uglyAF.png')
-print(path_to_new_content)
+path_to_new_content = create_new_blog('Testing title fool : ]','Yooooo WHooooo','uglyAF.png')
+# print(path_to_new_content)
 
 # --> Index.html ---> Blog Post
 from bs4 import BeautifulSoup as Soup
 
 with open(PATH_TO_BLOG/"index.html") as index:
     soup = Soup(index.read())
-    
+
+# checking for duplicate links
+# write the blog post link ---> index.html
+def check_for_duplicate_links(path_to_new_content, links):
+    urls = [str(link.get("href")) for link in links] # this should be [1.html,2.html,etc etc]
+    content_path = str(Path(*path_to_new_content.parts[-2:]))
+    return content_path in urls
+
+def write_to_index(PATH_TO_BLOG, path_to_new_content): # check here !!!!!
+    with open(PATH_TO_BLOG/'index.html') as index:
+        soup = Soup(index.read())
+
+    links = soup.find_all('a')
+    print("this is the links: ",links)
+    last_link = links[-1]
+    print("this is the last_link: ", last_link)
+   
+
+    if check_for_duplicate_links(path_to_new_content,links):
+        raise ValueError("Link already exist fool!")
+
+    # below is referencing alot of the beautiful soup library
+    link_to_new_blog = soup.new_tag("a",href=Path(*path_to_new_content.parts[-2:]))
+    link_to_new_blog.string = path_to_new_content.name.split('.')[0]
+    last_link.insert_after(link_to_new_blog)
+
+    with open(PATH_TO_BLOG/'index.html','w') as f:
+        f.write(str(soup.prettify(formatter='html')))
+
+
+write_to_index(PATH_TO_BLOG, path_to_new_content)
+# update_blog()
+
+# getting console error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
