@@ -171,7 +171,8 @@ random_str = str(random_num)
 result_str = 'image_example_download_' + random_str + '.png'
 
 # save_image(image_url,'image_example_download.png')
-save_image(image_url,result_str)
+# save_image(image_url,result_str)
+save_image(image_url,file_name=result_str)
 
 path_to_new_content = create_new_blog(title,blog_content,result_str)
 write_to_index(path_to_new_content)
