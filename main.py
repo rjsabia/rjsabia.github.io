@@ -142,7 +142,8 @@ blog_content = response['choices'][0]['text']
 print(blog_content)
 
 def dalle2_prompt(title):
-    prompt = f"Pixel art showing {title}"
+    # prompt = f"Pixel art showing {title}"
+    prompt = f"Show {title} in a retrowave and chillwave art style"
     return prompt
 
 image_prompt = dalle2_prompt(title)
