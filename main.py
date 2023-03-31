@@ -128,7 +128,7 @@ def create_prompt(title):
     Full Text: """.format(title)
     return prompt
 
-title = "The future of Python and AI"
+title = "The future of AI and society"
 # print(create_prompt(title))
 
 response = openai.Completion.create(engine='text-davinci-003',
