@@ -2,7 +2,7 @@ import os
 import openai
 import shutil
 import random
-
+import requests
 
 # environmental variables
 openai.api_key = os.getenv('OPEN_AI_KEY_01')
