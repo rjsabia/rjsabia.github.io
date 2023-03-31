@@ -127,7 +127,7 @@ def create_prompt(title):
     Full Text: """.format(title)
     return prompt
 
-title = "The future of Python, AI, and building one person Sass companies"
+title = "The future of Python, AI, and the one person Sass companies"
 # print(create_prompt(title))
 
 response = openai.Completion.create(engine='text-davinci-003',
@@ -141,6 +141,17 @@ response = openai.Completion.create(engine='text-davinci-003',
 blog_content = response['choices'][0]['text']
 print(blog_content)
 
+def dalle2_prompt(title):
+    prompt = f"Pixel art showing {title}"
+    return prompt
+
+image_prompt = dalle2_prompt(title)
+
+response = openai.Image.create(prompt=image_prompt,
+                               n=1,size="1024x1024")
+
+image_url = response['data'][0]['url']
+print(image_url)
 
 
 
