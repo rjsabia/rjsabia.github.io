@@ -77,7 +77,7 @@ def create_new_blog(title,content,cover_image):
     else:
         raise FileExistsError("File already exist, please check file name. Aborting operation!")
 
-path_to_new_content = create_new_blog('Testing title fool : ]','Sup March 30 , 4:30','uglyAF.png')
+# path_to_new_content = create_new_blog('Testing title fool : ]','Sup March 30 , 4:30','uglyAF.png')
 # print(path_to_new_content)
 
 # --> Index.html ---> Blog Post
@@ -113,8 +113,8 @@ def write_to_index(path_to_new_content):
         f.write(str(soup.prettify(formatter='html')))
 
 
-write_to_index(path_to_new_content)
-update_blog()
+# write_to_index(path_to_new_content)
+# update_blog()
 
 def create_prompt(title):
     prompt = """
@@ -172,6 +172,11 @@ result_str = 'image_example_download_' + random_str + '.png'
 
 # save_image(image_url,'image_example_download.png')
 save_image(image_url,result_str)
+
+path_to_new_content = create_new_blog(title,blog_content,result_str)
+write_to_index(path_to_new_content)
+update_blog()
+
 
 
 
