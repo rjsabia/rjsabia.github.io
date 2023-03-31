@@ -121,7 +121,7 @@ def create_prompt(title):
     My Name is Russ and I am a Python instructor for coding. I especially focus my teaching on coding AI based python applications.
 
     Blog
-    Title: {title}
+    Title: {}
     tags: tech, python, coding, AI, machine learning, Open AI, Open AI API
     Summary: I talk about what the future of AI could hold for Python applications and Sass products.
     Full Text: """.format(title)
