@@ -115,6 +115,38 @@ def write_to_index(path_to_new_content):
 write_to_index(path_to_new_content)
 update_blog()
 
+def create_prompt(title):
+    prompt = """
+    Biography:
+    My Name is Russ and I am a Python instructor for coding. I especially focus my teaching on coding AI based python applications.
+
+    Blog
+    Title: {}
+    tags: tech, python, coding, AI, machine learning, Open AI, Open AI API
+    Summary: I talk about what the future of AI could hold for Python applications and Sass products.
+    Full Text: """.format(title)
+    return prompt
+
+title = "The future of Python, AI, and building one person Sass companies"
+# print(create_prompt(title))
+
+response = openai.Completion.create(engine='text-davinci-003',
+                                    prompt=create_prompt(title),
+                                    max_tokens=1000,
+                                    temperature=0.7,
+                                    frequency_penalty=1.0)
+
+# print(response['choices'][0]['text'])
+
+blog_content = response['choices'][0]['text']
+print(blog_content)
+
+
+
+
+
+
+
 
 
 

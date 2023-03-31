@@ -14,4 +14,4 @@ response = openai.Completion.create(engine='text-davinci-003',
 test = response['choices'][0]['text']
 print(test)
 
-print(test_env)
+
