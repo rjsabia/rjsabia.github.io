@@ -134,7 +134,7 @@ response = openai.Completion.create(engine='text-davinci-003',
                                     prompt=create_prompt(title),
                                     max_tokens=1000,
                                     temperature=0.7,
-                                    frequency_penalty=1.0)
+                                    frequency_penalty=0.5)
 
 # print(response['choices'][0]['text'])
 
