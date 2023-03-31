@@ -1,6 +1,7 @@
 import os
 import openai
 import shutil
+import random
 
 
 # environmental variables
