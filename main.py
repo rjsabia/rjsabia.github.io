@@ -143,7 +143,7 @@ print(blog_content)
 
 def dalle2_prompt(title):
     # prompt = f"Pixel art showing {title}"
-    prompt = f"Hyper realistic art showing {title}"
+    prompt = f"Pixel digital art showing: {title}"
     return prompt
 
 image_prompt = dalle2_prompt(title)
@@ -153,6 +153,24 @@ response = openai.Image.create(prompt=image_prompt,
 
 image_url = response['data'][0]['url']
 print(image_url)
+
+# ----------
+
+def save_image(image_url,file_name):
+    image_res = requests.get(image_url,stream=True)
+    if image_res.status_code ==200:
+        with open(file_name,'wb') as f:
+            shutil.copyfileobj(image_res.raw,f)
+    else:
+        print('ERROR LOADING IMAGE : ) ')
+    return image_res.status_code
+
+random_num = random.randint(0, 99)
+random_str = str(random_num)
+result_str = 'image_example_download_' + random_str + '.png'
+
+# save_image(image_url,'image_example_download.png')
+save_image(image_url,result_str)
 
 
 
